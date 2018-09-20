@@ -1,0 +1,106 @@
+1. CD
+在实现接口时，如果实现了所有方法，不能定义为抽象类 abstract
+
+2.C
+方法的权限被缩小，编译错误
+
+在接口类中  省略修饰符  仍是public  在实现接口类时，必须加上public
+
+类不能继承接口
+
+3.B
+子类在继承父类时，不继承private。
+但是在创建子类的对象时，父类的private也被分配内存空间了。
+
+4.BC
+5.C
+this.属性/this(实参)
+6.F
+this 代表的是当前对象
+7.B
+8.C
+
+构造方法的调用，通过this.()实现
+9.D
+
+
+多态的实现方式：向上转型
+		Person p=new Teacher()
+
+if-else语句
+if
+else if--->已经去除了if语句里面的
+
+
+
+
+package socket;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+
+public class seversocket {
+
+	public static void main(String[] args) throws IOException  {
+		// TODO Auto-generated method stub
+		ServerSocket server=new ServerSocket(9);
+		/*Socket socket=server.accept();//没有用户端口请求9999端口时，会阻塞*/
+			//ServerSocket server = new ServerSocket(9999);
+			//Socket socket=server.accept();
+		//System.out.println("建立连接成功");
+		//接受到一个字节输出流
+		    //OutputStream os= socket.getOutputStream();
+		//封装成一Writer字符流
+		   //BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os));
+		/*bw.write("你好，客户端，我们建立连接成功");
+		bw.flush();
+		bw.close();
+		
+		while(true) {
+		Scanner sc = new Scanner(System.in);
+		String nextLine = sc.nextLine();
+		while(!"bye".equals(nextLine)) {
+				bw.write(nextLine+"\n");
+				bw.flush();
+				nextLine = sc.nextLine();
+			}
+			bw.write(nextLine+"\n");
+			bw.flush();
+			bw.close();}*/
+		while(true) {
+			Socket socket = server.accept();
+			new ServerTXThread(socket).start();
+			}
+			
+		
+		
+	
+		
+//		System.out.println("建立连接成功");
+	}
+}
+
+Map <Integer,Integer> map1=new HashMap<Integer,Integer>();
+				
+		for(int i=0;i<m.length;i++) {
+			if(  map.get(m[i]) ==null) {
+				map.put(m[i],0);
+			}
+			else {
+				map.put(m[i],( (int)map.get(m[i]) )+1);
+			}
+		}
+		Set<Integer> ks1 = map.keySet(); 
+		for(int key:ks1) {
+			Integer value=(Integer) map.get(key);
+			System.out.println(key + "重复的次数" + value);
+		}
+		
+		return true;
